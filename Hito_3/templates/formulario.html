@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #382c36;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Log in - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Application-Form.css">
+    <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Formulario-Farmacia-styles.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav" style="background: #3e263a;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Proyecto de Biodiseño 1</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto"></ul><a class="btn btn-primary shadow" role="button" href="https://github.com/miguel-isidro05/BioDesign-ECG-Project" style="background: rgb(150,26,52);border-color: var(--bs-navbar-disabled-color);">Repositorio</a>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5" style="background: url(&quot;assets/img/52652472142_3201344ba4_k.webp&quot;) bottom, #382c36;">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center" style="background: #3e263a;">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center" style="background: #3e263a;">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4" style="background: rgb(61,186,203);"><img src="assets/img/clipboard-image.png" width="80" height="80" style="transform: perspective(0px);padding: 0px;border-style: initial;border-color: var(--bs-red);border-radius: 20px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="padding: 30px;">
+            <div class="row">
+                <div class="col-md-12" style="color: rgb(63,38,58);background: #3f263a;">
+                    <section>
+                        <h1 class="text-center text-capitalize" style="color: #ffffff;padding: 20px;">1. Datos generales</h1>
+                        <div class="container" style="border-color: rgb(63, 38, 58);border-top-color: rgb(63,38,58)">
+
+                            <form id="application-form" style="border-width: 0px;">
+                                <div class="form-group mb-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p style="color: #fbfbfb;"><strong>Nombres:</strong></p><input class="form-control" type="text" required="" name="" placeholder="Ej. John">
+                                        </div>
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Apellidos:</strong></p><input class="form-control" type="text" required="" name="" placeholder="Ej. Smith">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Año de Nacimiento:</strong></p><input class="form-control" type="date" required="" name="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <p style="color: #ffffff;"><strong>Correo Electronico:</strong></p><input class="form-control" type="email" name="" placeholder="Ej. user@domain.com">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <p style="color: #ffffff;"><strong>Numero de telefono:</strong></p><input class="form-control" type="number" name="" placeholder="Ej. +51 965442133">
+                                </div>
+                                <div class="justify-content-center d-flex form-group mb-3">
+                                    <div id="submit-btn"></div>
+                                </div>
+                            </form>
+                        
+                        </div>
+                        <div class="col">
+                            <h3 id="fail" class="text-center text-danger d-none"><br>Form not Submitted&nbsp;<a href="contact.html">Try Again</a><br><br></h3>
+                            <h3 id="success-1" class="text-center text-success d-none"><br>Form Submitted Successfully&nbsp;<a href="contact.html">Send Another Response</a><br><br></h3>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="padding: 30px;">
+            <div class="row">
+                <div class="col-md-12" style="color: rgb(63,38,58);background: #3f263a;">
+                    <section>
+                        <h1 class="text-center text-capitalize" style="color: rgb(255,255,255);padding: 20px;">2. Datos especificos</h1>
+                        <div class="container" style="border-color: rgb(63, 38, 58);border-top-color: rgb(63,38,58);border-left-color: 38,;">
+                            
+                            <form id="application-form-1" style="border-width: 0px;">
+                                <div class="form-group mb-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Sexo:</strong></p>
+                                            <div id="floating-label" class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
+                                                    <optgroup label="This is a group">
+                                                        <option value="1">Masculino</option>
+                                                        <option value="2">Femenino</option>
+                                                        <option value="3">Otros</option>
+                                                    </optgroup>
+                                                </select><label class="form-label" id="floating-label" for="floatinginput">Select ...</label></div>
+                                        </div>
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Deporte:</strong></p>
+                                            <div id="floating-label-3" class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
+                                                    <option value="1">Baloncesto</option>
+                                                    <option value="2">Ciclismo</option>
+                                                    <option value="3">Volleyball</option>
+                                                    <option value="4">Running</option>
+                                                    <option value="5">Futbol</option>
+                                                </select><label class="form-label" id="floating-label-4" for="floatinginput">Select ...</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Altura (m):</strong></p><input class="form-control" type="text" required="" name="" placeholder="Ej. 1.87">
+                                        </div>
+                                        <div class="col">
+                                            <p style="color: #ffffff;"><strong>Peso (kg):</strong></p><input class="form-control" type="text" required="" name="" placeholder="Ej. 67">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <p style="color: #ffffff;"><strong>Tasa de entrenamiento semanal:</strong></p>
+                                    <div id="floating-label-5" class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
+                                            <option value="1">2 dias</option>
+                                            <option value="2">3 dias</option>
+                                            <option value="3">4 dias</option>
+                                            <option value="4">5 dias</option>
+                                            <option value="5">6 dias</option>
+                                        </select><label class="form-label" id="floating-label-6" for="floatinginput">Select ...</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p style="color: #ffffff;"><strong>Fumas?</strong></p>
+                                        <div id="floating-label" class="form-floating mb-3"><label class="form-label" id="floating-label" for="floatinginput">Select ...</label></div>
+                                        <div id="floating-label-7" class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
+                                                <option value="1">Si</option>
+                                                <option value="2">No</option>
+                                            </select><label class="form-label" id="floating-label-8" for="floatinginput">Select ...</label></div>
+                                    </div>
+                                    <div class="col">
+                                        <p style="color: #ffffff;"><strong>Bebes?</strong></p>
+                                        <div id="floating-label-9" class="form-floating mb-3"></div>
+                                        <div id="floating-label-1" class="form-floating mb-3"><select class="form-select form-select" for="floatinginput" placeholder="HGsOFT">
+                                                <option value="1">Si</option>
+                                                <option value="2">No</option>
+                                            </select><label class="form-label" id="floating-label-2" for="floatinginput">Select ...</label></div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="justify-content-center d-flex form-group mb-3">
+                            <div id="submit-btn-1">
+                                <div class="row">
+                                    <div class="col" style="padding: 20px;"><a class="btn btn-primary shadow" role="button" href="menu_principal.html" style="background: rgb(150,26,52);border-color: var(--bs-navbar-disabled-color);">Registrar / Actualizar Paciente</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h3 id="fail-1" class="text-center text-danger d-none"><br>Form not Submitted&nbsp;<a href="contact.html">Try Again</a><br><br></h3>
+                            <h3 id="success-2" class="text-center text-success d-none"><br>Form Submitted Successfully&nbsp;<a href="contact.html">Send Another Response</a><br><br></h3>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.getElementById("application-form-1").addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevents the form from submitting the default way
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {};
+            
+            formData.forEach((value, key) => {
+                data[key] = value;  // Collects all the form field data
+            });
+    
+            try {
+                const response = await fetch("/formulario", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"  // Ensures the server expects JSON
+                    },
+                    body: JSON.stringify(data)  // Converts form data to JSON
+                });
+    
+                if (response.ok) {
+                    alert("Registro exitoso");
+                    form.reset(); // Reset the form after successful submission
+                    window.location.href = "signal_menu2.html";  // Redirect to signal menu or any other page
+                } else {
+                    const errorData = await response.json(); // Handle the response error if needed
+                    alert(`Error: ${errorData.message || "Something went wrong."}`);
+                }
+            } catch (error) {
+                alert("An error occurred while submitting the form: " + error.message);
+            }
+        });
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Application-Form-Bootstrap-Image-Uploader.js"></script>
+    <script src="assets/js/Application-Form-submit-form.js"></script>
+    <script src="assets/js/bold-and-dark.js"></script>
+
+</body>
+
+</html>

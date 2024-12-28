@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #382c36;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Log in - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Application-Form.css">
+    <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Formulario-Farmacia-styles.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav" style="background: #3e263a;">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/"><span>Proyecto de Biodiseño 1</span></a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto"></ul>
+                <a class="btn btn-primary shadow" role="button" href="https://github.com/miguel-isidro05/BioDesign-ECG-Project" style="background: rgb(150,26,52);border-color: var(--bs-navbar-disabled-color);">Repositorio</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5" style="background: url('assets/img/52652472142_3201344ba4_k.webp') bottom, #382c36;">
+        <div class="container py-5">
+            <div class="row justify-content-center" style="background: #3e263a;">
+                <div class="col-xxl-12">
+                    <h1 class="text-center" style="padding: 20px;">Señal a tiempo real</h1>
+                    <div style="text-align: center;">
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                            <button class="btn btn-primary btn-lg text-center shadow" type="button" id="guardarDatosBtn" style="background: rgb(150,26,52); border-color: var(--bs-navbar-disabled-color); padding: 10px; width: 200px;">Guardar datos</button>
+                            <button class="btn btn-primary btn-lg text-center shadow" type="button" id="toggleGraphBtn" style="background: rgb(150,26,52); border-color: var(--bs-navbar-disabled-color); padding: 10px; width: 200px;">Empezar datos</button>
+                        </div>
+                        <h5 class="divider-style" style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
+                            <span style="background-color: rgb(246, 239, 196); color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="potValue">Valor: 00000</span>
+                            <span style="background-color: rgb(246, 239, 196); color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="timeValue">Tiempo: 0:00:00s</span>
+                            <span style="background-color: rgb(246, 239, 196); color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="timeValue">Anomalo: Si </span>
+
+                        </h5>
+                    </div>
+                    <div class="col-xxl-12"></div>
+                        <div style="text-align: center;">
+                            <h5 class="divider-style" style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px;">
+                                <span style="background-color: white; color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="HR">HR: 00 bpm</span>
+                                <span style="background-color: white; color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="HRV">HRV: 00</span>
+                                <span style="background-color: white; color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="Amplitud_T_prom">ST Amplitud: 00%</span>
+                                <span style="background-color: white; color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="Amplitud_ST_prom">T Amplitud: 00%</span>
+                                <span style="background-color: white; color: black; padding: 15px 30px; border-radius: 20px; font-size: 1.5rem; border: 2px solid #ccc;" id="Intervalo_QTc_prom">QTC: 00 ms</span>
+
+                            </h5>
+                        </div>
+                    </div>
+                    <div style="margin: 20px;">
+                        <canvas id="realTimeChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        let isGraphing = true;
+        let timerInterval;
+        let elapsedTime = 0;
+        let startTime = 0;
+        let sampleIndex = 1;
+        let potDataBuffer = [];  // Buffer para almacenar los datos de potenciómetro
+    
+        let ecgData = {};  // Almacena los datos de ECG
+
+        // Función para actualizar el gráfico
+        function updateGraph(data) {
+            // Aquí va el código para actualizar el gráfico con los datos
+            console.log("Actualizando gráfico con los datos:", data);
+        }
+
+        async function fetchECGData() {
+            const response = await fetch("http://localhost:8000/get_ecg_data");
+            const data = await response.json();
+            
+            // Tomamos el último valor de los datos (si hay más de uno, el último se actualiza)
+            if (data.data.length > 0) {
+                ecgData = data.data[data.data.length - 1];
+            }
+        }
+        // Función para actualizar los valores en los elementos HTML correspondientes
+        function updateSignalValues() {
+            document.getElementById('HR').textContent = `HR: ${ecgData.HR} bpm`;
+            document.getElementById('HRV').textContent = `HRV: ${ecgData.HRV}`;
+            document.getElementById('Amplitud_ST_prom').textContent = `Amplitud_ST_prom: ${ecgData.Amplitud_ST_prom}`;
+            document.getElementById('Amplitud_T_prom').textContent = `Amplitud_T_prom: ${ecgData.Amplitud_T_prom}`;
+            document.getElementById('Intervalo_QTc_prom').textContent = `Intervalo_QTc_prom: ${ecgData.Intervalo_QTc_prom} ms`;
+        }
+
+        // Función para obtener datos del potenciómetro
+        async function fetchPotData() {
+            try {
+                const response = await fetch('/data');
+                const result = await response.json();
+                const value = parseFloat(result.data);
+                document.getElementById('potValue').textContent = result.data || "Esperando datos...";
+    
+                if (!isNaN(value)) {
+                    // Almacenar el valor en el buffer
+                    potDataBuffer.push(value);
+    
+                    if (potDataBuffer.length >= 5 && isGraphing) {  // Solo actualizar cuando el buffer esté lleno
+                        const dataToPlot = potDataBuffer.slice(); // Crear una copia del buffer
+                        potDataBuffer = [];  // Vaciar el buffer
+    
+                        // Actualizar gráfico con los datos acumulados
+                        updateGraph(dataToPlot);
+                    }
+                }
+    
+                if (isGraphing) {
+                    setTimeout(fetchPotData, 0.1);  // Ajustar tiempo entre cada solicitud
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        // Inicialización del gráfico
+        const ctx = document.getElementById('realTimeChart').getContext('2d');
+        const realTimeChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Señal',
+                    data: [],
+                    borderColor: 'rgb(150, 26, 52)',
+                    tension: 0.8,
+                    backgroundColor: 'rgba(150, 26, 52, 0.2)',
+                    pointRadius: 0,  // Elimina los puntos
+
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 10,  // Hace que la animación sea rápida, con una transición suave
+                    easing: 'easeInOutSine'  // Usamos un "easing" suave para la animación
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.8)' // Blanco semitransparente
+                        },
+                        title: { display: true, text: 'Muestras' },
+                        ticks: { display: false }  // Ocultar las marcas de tiempo en el eje X
+
+                    },
+                    y: {
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.8)' // Blanco semitransparente
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 1500,
+                        title: { display: true, text: 'Valor de la Señal' }
+                    }
+                }
+            }
+        });
+    
+        // Función para actualizar la gráfica
+        function updateGraph(values) {
+            const formattedTime = new Date(elapsedTime * 1000).toISOString().substr(11, 8);
+    
+            // Limpiar datos y etiquetas si han pasado más de 10 segundos
+            if (elapsedTime % 10 === 0 && elapsedTime !== 0) {
+                realTimeChart.data.labels = [];  // Borrar las etiquetas
+                realTimeChart.data.datasets[0].data = [];  // Borrar los datos
+                sampleIndex = 1;  // Reiniciar el índice de muestras
+            }
+    
+            // Agregar nuevos datos al gráfico
+            values.forEach((value, idx) => {
+                realTimeChart.data.labels.push(sampleIndex++);
+                realTimeChart.data.datasets[0].data.push(value);
+            });
+    
+            document.getElementById('timeValue').textContent = `Tiempo: ${formattedTime}s`;
+            realTimeChart.update();  // Actualizar el gráfico con los nuevos valores
+        }
+    
+        // Función para iniciar el temporizador
+        function startTimer() {
+            startTime = Date.now() - elapsedTime * 1000;
+            timerInterval = setInterval(() => {
+                elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            }, 1000);
+        }
+    
+        // Función para detener el temporizador
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+    
+        // Función para resetear los datos
+        function resetData() {
+            // Resetear la gráfica
+            realTimeChart.data.labels = [];
+            realTimeChart.data.datasets[0].data = [];
+            realTimeChart.update();
+            sampleIndex = 1;
+            elapsedTime = 0;
+            document.getElementById('timeValue').textContent = `Tiempo: 0:00:00s`;
+        }
+    
+        // Evento para guardar los datos
+        document.getElementById('guardarDatosBtn').addEventListener('click', async () => {
+            const response = await fetch('/guardar-datos');
+            const result = await response.json();
+            alert(result.message);
+        });
+    
+        // Evento para iniciar/detener la graficación
+        document.getElementById('toggleGraphBtn').addEventListener('click', () => {
+            isGraphing = !isGraphing;  // Alterna la bandera (de 0 a 1 o de 1 a 0)
+    
+            // Cambiar el texto del botón dependiendo del estado
+            if (isGraphing) {
+                document.getElementById('toggleGraphBtn').textContent = "Detener datos";
+                fetchPotData(); 
+            } else {
+                document.getElementById('toggleGraphBtn').textContent = "Empezar datos";
+            }
+        });
+
+        // Simular clic en el botón "Empezar datos" cuando la página se carga
+        window.onload = () => {
+            document.getElementById('toggleGraphBtn').click();  // Simula el clic
+        };
+
+        // Función para refrescar el gráfico y los valores cada 10 segundos
+        setInterval(() => {
+            fetchECGData();  // Actualiza los valores de ECG desde el backend
+
+            updateSignalValues();  // Actualiza la visualización de los valores
+
+            if (isGraphing && potDataBuffer.length > 0) {
+                updateGraph(potDataBuffer);  // Actualiza el gráfico con los datos en el buffer
+                potDataBuffer = [];  // Limpiar el buffer después de actualizar el gráfico
+            }
+        }, 10000);  // Refrescar cada 10 segundos
+
+        window.onload = () => {
+            document.getElementById('toggleGraphBtn').textContent = "Detener datos"; // Ajuste inicial
+            startTimer();
+            fetchPotData();
+        };
+    </script>
+
+</body>
+</html>

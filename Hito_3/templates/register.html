@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #382c36;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Log in - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Application-Form.css">
+    <link rel="stylesheet" href="assets/css/Features-Centered-Icons-icons.css">
+    <link rel="stylesheet" href="assets/css/Formulario-Farmacia-styles.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav" style="background: #3e263a;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Proyecto de Biodiseño 1</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto"></ul><a class="btn btn-primary shadow" role="button" href="https://github.com/miguel-isidro05/BioDesign-ECG-Project" style="background: rgb(150,26,52);border-width: 0px;">Repositorio</a><a class="btn btn-primary shadow" role="button" href="login.html" style="background: rgb(150,26,52);border-width: 0px;margin: 20px;">Salir</a>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5" style="background: url(&quot;assets/img/52652472142_3201344ba4_k.webp&quot;) bottom, #382c36;">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center" style="background: #3e263a;">
+                <div class="col-md-6 col-xl-4 col-xxl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center" style="background: #3e263a;">
+                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4" style="background: rgb(61,186,203);"><img src="assets/img/clipboard-image.png" width="80" height="80" style="transform: perspective(0px);padding: 0px;border-style: initial;border-color: var(--bs-red);border-radius: 20px;"></div>
+                            
+                            <form id="registerForm" style="border-color: var(--bs-card-cap-bg);">
+                                <div class="mb-3">
+                                    <input class="form-control" type="text" name="name" placeholder="Nombres">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="text" name="address" placeholder="Apellidos">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="email" name="email" placeholder="Correo">
+                                </div>
+                                <input class="form-control" type="password" name="pass_" placeholder="Password">
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-info shadow d-block w-100" style="background: rgb(150,26,52);">Registrar</button>
+                                </div>
+                                <p class="text-muted"></p>
+                            </form>
+                            
+                            <script>
+                                document.getElementById("registerForm").addEventListener("submit", async (event) => {
+                                    event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+                                
+                                    const form = event.target;
+                                    const formData = new FormData(form);
+                                    const data = {};
+                                    formData.forEach((value, key) => {
+                                        data[key] = value;  // Extrae cada campo del formulario
+                                    });
+                                
+                                    try {
+                                        const response = await fetch("/register", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json"  // Asegúrate de que el servidor acepte JSON
+                                            },
+                                            body: JSON.stringify(data)  // Convierte los datos del formulario a JSON
+                                        });
+                                
+                                        if (response.ok) {
+                                            alert("Registro exitoso");
+                                            form.reset(); // Limpia el formulario tras el éxito
+                                            // Redirecciona al archivo login.html
+                                            window.location.href = "login.html";
+                                        } else {
+                                            // Si la respuesta no es OK, mostramos el error en formato JSON
+                                            const errorData = await response.json();
+                                            if (errorData.detail) {
+                                                alert("Error: " + errorData.detail);
+                                            } else {
+                                                alert("Error: " + JSON.stringify(errorData, null, 2));
+                                            }
+                                        }
+                                    } catch (error) {
+                                        console.error("Error:", error);
+                                        alert("Error en la conexión: " + error.message);
+                                    }
+                                });
+                                </script>
+                                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Application-Form-Bootstrap-Image-Uploader.js"></script>
+    <script src="assets/js/Application-Form-submit-form.js"></script>
+    <script src="assets/js/bold-and-dark.js"></script>
+</body>
+
+</html>
