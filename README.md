@@ -3,7 +3,7 @@ Aplicación web para la detección de anomalías en señales de ECG en tiempo re
 
 # Introduccion:
 
-Las enfermedades cardiovasculares (ECV) son una de las principales causas de muerte a nivel mundial, y el ejercicio intenso de resistencia puede aumentar el riesgo de anomalías cardíacas, incluso en atletas altamente entrenados. Este proyecto propone un sistema portátil de ECG integrado con machine learning para detectar anomalías cardíacas en tiempo real durante actividades de alta resistencia. Enfocado en deportes como ciclismo, running y baloncesto, busca superar las limitaciones actuales, ofreciendo una solución cómoda, fiable y precisa para mejorar la salud cardiovascular de los deportistas.
+Las enfermedades cardiovasculares (ECV) son una de las principales causas de muerte a nivel mundial, y el ejercicio intenso de resistencia puede aumentar el riesgo de anomalías cardíacas, incluso en atletas altamente entrenados. Este proyecto propone un sistema de ECG inalambrico integrado con una aplicacion web para detectar anomalías cardíacas mediante algoritmos de machine learning en tiempo real durante actividades de alta resistencia. Enfocado en deportes como volleyball, running y baloncesto, busca superar investigar en las limitaciones actuales, ofreciendo una solución cómoda para mejorar la investigacion y el monitoreo en la salud cardiovascular de los deportistas.
 
 # Explicacion:
 
