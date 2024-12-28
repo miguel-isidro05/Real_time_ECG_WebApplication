@@ -3,6 +3,7 @@ Aplicación web para la detección de anomalías en señales de ECG en tiempo re
 
 ## Hito 3: 
 Carpeta donde se encuentra la aplicacion web creada en el proyecto "Sistema de ECG inalámbrico con aplicación web para monitoreo y deteccion de anomalías cardíacas en deportistas de alto rendimiento" desarrollado como parte del "Proyecto de Biodiseño 1".
+#
 
 <p style="text-align: center;">
   <img width="512" alt="image" src="https://github.com/user-attachments/assets/e55a9cfd-bdf7-4158-a226-8abd22423f9d" />
@@ -10,7 +11,7 @@ Carpeta donde se encuentra la aplicacion web creada en el proyecto "Sistema de E
 
 ## main_proccesing: 
 Carpeta donde se encuentra el analisis y procesado de la base de datos de SportDB2.0 para el modelo de Isolation Forests.
-<img width="795" alt="image" src="https://github.com/user-attachments/assets/c85afe43-5ba3-44ca-bcd9-0ad069996b5a" />
+#
 
 <p style="text-align: center;">
   <img width="795" alt="image" src="https://github.com/user-attachments/assets/c85afe43-5ba3-44ca-bcd9-0ad069996b5a" />
