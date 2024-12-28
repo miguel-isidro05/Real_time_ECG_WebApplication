@@ -8,7 +8,7 @@ Las enfermedades cardiovasculares (ECV) son una de las principales causas de mue
 # Explicacion:
 
 ### Generación y procesamiento de la señal:
-El proceso de obtención de la señal comienza en el momento que el ESP32 transmite datos a través de la conexión bluetooth a la aplicación web, de tal forma que se obtendrá los valores a tiempo real y guardará temporalmente en la aplicación web.
+El proceso de obtención de la señal comienza en el momento que el ESP32 transmite datos a través de la conexión bluetooth a la aplicación web, de tal forma que se obtendrá los valores a tiempo real y guardará temporalmente en la aplicación web y si en caso se necesiten dichos datos para un posterior analisis, se contara con un boton para guardar en una base de datos en la web.
 
 Antes del análisis de datos, se carga y extrae la señal desde un archivo .mat, puesto que la base de datos usada (Sport DB 2.0: https://www.researchgate.net/publication/376998185_Sport_DB_20_A_New_Database_of_Data_Acquired_by_Wearable_and_Portable_Devices_While_Practicing_Sport) posee los archivos en formato .mat, por lo cual es necesario trabajar con dicho formato para simplificar el proceso de extracción  y segmentación de la señal. En ese sentido, se usará una frecuencia de muestreo de 300 Hz, pues de todos los productos comerciales usados en la base de datos el más fiable es  Kadia mobile 6L, ya que ha sido aprobada por la FDA para uso en diagnóstico médico, por lo cual se usará sólo en los deportes de resistencia (basketball, volleyball y soccer) correspondiente a ese dispositivo para una mejor correlación entre datos obtenidos y reales.
 
