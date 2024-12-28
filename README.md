@@ -29,7 +29,7 @@ Carpeta donde se encuentra la aplicacion web creada en el proyecto "Sistema de E
 </p>
 
 ## main_proccesing: 
-Carpeta donde se encuentra el analisis y procesado de la base de datos de SportDB2.0 para el modelo de Isolation Forests.
+Carpeta donde se encuentra el analisis y procesado de la base de datos de SportDB2.0 para el modelo de Isolation Forest.
 #
 
 <p style="text-align: center;">
