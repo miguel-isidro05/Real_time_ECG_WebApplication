@@ -14,6 +14,10 @@ Antes del análisis de datos, se carga y extrae la señal desde un archivo .mat,
 Las ondas PQRST conforman puntos clave dentro del ECG, aquellos son la consecuencia de los potenciales de acción producidos tras los latidos cardíacos del corazón. En ese sentido, la capacidad que poseen dichas señales para transmitir información acerca del funcionamiento del corazón de un paciente lo convierte en una gran herramienta para monitorear y prevenir enfermedades cardiovasculares sobre todo en deportistas, ya que su corazón puede tener una morfología distinta respecto a una persona "normal".
 
 Para esta detección es vital primero  detectar el pico R, el cual representa la despolarización ventricular, pues al tener la curva más "empinada" de todos los picos, lo convierte en un buen punto de partida para obtener los demás picos.
+<img width="276" alt="image" src="https://github.com/user-attachments/assets/c0cffacb-ee31-4a84-a566-beaa5a50d439" />
+
+###Parámetros de la señal:
+Después de obtener los picos de la señal, se obtiene el promedio de los parámetros respectivos, ya que se realizará un modelo de ML por cada uno para que se especializan en detectar anomalías en cualquiera de los parámetros, pues cualquier variación anormal a largo plazo podría significar verdaderos problemas de salud.
 
 ## Hito 3: 
 Carpeta donde se encuentra la aplicacion web creada en el proyecto "Sistema de ECG inalámbrico con aplicación web para monitoreo y deteccion de anomalías cardíacas en deportistas de alto rendimiento" desarrollado como parte del "Proyecto de Biodiseño 1".
