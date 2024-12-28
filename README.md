@@ -22,6 +22,11 @@ Para esta detección es vital primero  detectar el pico R, el cual representa la
 ### Parámetros de la señal:
 Después de obtener los picos de la señal, se obtiene el promedio de los parámetros respectivos, ya que se realizará un modelo de ML por cada uno para que se especializen en detectar anomalías en cualquiera de dichos parámetros, pues cualquier variación anormal a largo plazo podría significar verdaderos problemas de salud, los cuales seran:
 
+### 1. Frecuencia cardiaca (HR)
+### 2. Variabilidad de la frecuencia cardiaca (HRV)
+### 3. Amplitud del segmento ST
+### 3. Amplitud del pico T
+### 4. Intervalo QTc
 
 ## Hito 3: 
 Carpeta donde se encuentra la aplicacion web creada en el proyecto "Sistema de ECG inalámbrico con aplicación web para monitoreo y deteccion de anomalías cardíacas en deportistas de alto rendimiento" desarrollado como parte del "Proyecto de Biodiseño 1".
