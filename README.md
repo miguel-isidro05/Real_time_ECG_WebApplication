@@ -16,3 +16,5 @@ Carpeta donde se encuentra el analisis y procesado de la base de datos de SportD
 <p style="text-align: center;">
   <img width="795" alt="image" src="https://github.com/user-attachments/assets/c85afe43-5ba3-44ca-bcd9-0ad069996b5a" />
 </p>
+
+Enlace del video sobre el funcionamiento de la aplicacion web y el emulador de ECG en conjunto: https://drive.google.com/file/d/1lkdfKj6ReUG6c930V4KiMxVPHxJV2eVt/view?usp=sharing
